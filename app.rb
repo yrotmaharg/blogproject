@@ -14,8 +14,27 @@ require 'rake'
 
 
 get '/' do
-	'hello world'
+	haml :home
 end
 
+get '/users/new' do
+	haml :sign_up
+end
 
+get '/sign_in' do
+	haml :sign_in
+end
+
+get '/users/:id' do
+	User.find(params[:id])
+	haml :profile
+end
+
+get '/blog' do
+	haml :blog
+end
+
+get '/sign_out' do
+	redirect '/'
+end
 # sign up, sign in, sign out(redirect), home, layout
