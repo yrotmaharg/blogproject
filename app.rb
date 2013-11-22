@@ -10,4 +10,12 @@ require 'sinatra/base'
 require 'rack-flash'
 require 'rake'
 
-require './models'
+#require './models'
+
+
+get '/' do
+	'hello world'
+end
+
+
+# sign up, sign in, sign out(redirect), home, layout
