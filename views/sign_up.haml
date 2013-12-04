@@ -1,0 +1,14 @@
+%h1 Register y'all!
+
+%form{action: "/users/new", method: "POST"}
+  %label{for: 'fname'} First name
+  %input{type: "text", name: "[user]fname"}
+  %label{for: 'lname'} Last name
+  %input{type: "text", name: "[user]lname"}
+  %label{for: 'username'} User name
+  %input{type: "text", name: "[user]username"}
+  %label{for: 'email'} Email
+  %input{type: "text", name: "[user]email"}
+  %label{for: 'password'} Password
+  %input{type: "password", name: "[user]password"}
+  %input{type: "submit", value: "submit"}

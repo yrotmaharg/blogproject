@@ -9,9 +9,13 @@ require 'bundler/setup'
 require 'sinatra/base'
 require 'rack-flash'
 require 'rake'
+require 'bcrypt'
 
-#require './models'
+require './models'
 
+enable :sessions
+use Rack::Flash, :sweep => true
+set :sessions => true
 
 get '/' do
 	haml :home
@@ -19,6 +23,17 @@ end
 
 get '/users/new' do
 	haml :sign_up
+end
+
+post '/users/new' do
+	@user = User.new(params['user'])
+	if @user.save
+		flash[:notice] = "Ya done signed up successfully, pardner!"
+		redirect '/'
+	else
+		 flash[:alert] = "Galdang, now that dint work!"
+		 redirect '/users/new'
+  	end
 end
 
 get '/sign_in' do
