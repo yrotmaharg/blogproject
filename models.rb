@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
 	attr_accessor :password
 
+	#this is a method called a hook. It could be attr_accessor(password) to create a method, but ruby makes it nice.
+
 	before_save :encrypt_password
 
 	def encrypt_password

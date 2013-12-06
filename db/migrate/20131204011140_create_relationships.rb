@@ -10,3 +10,7 @@ end
   	drop_table :relationships 
   end
 end
+
+
+#create a tags table too: name, timestamps (this needs a join table too, like Relationships for users and posts)
+#this PostTags table would include tag_id and post_id
