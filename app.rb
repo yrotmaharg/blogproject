@@ -38,7 +38,7 @@ get '/' do
 end
 
 get '/users/new' do
-	haml :sign_up
+	haml :'users/new'
 end
 
 post '/users/new' do
@@ -74,16 +74,18 @@ get '/users/:id' do
 	haml :profile
 end
 
-get '/blog' do
-	haml :blog
+get '/posts/new' do
+	haml :'posts/new'
 end
+
+
 
 get '/sign_out' do
 	session[:user_id] = nil
   	flash[:notice] = "You've been successfully signed out."
 	redirect '/'
 end
-# sign up, sign in, sign out(redirect), home, layout
+
 
 
 #note: << means "add to"
