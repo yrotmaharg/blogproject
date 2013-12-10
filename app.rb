@@ -74,8 +74,13 @@ get '/users/:id' do
 	haml :profile
 end
 
-get '/posts/new' do
-	haml :'posts/new'
+get '/users/:id/posts/new' do
+  @user = User.find(parems[:id])
+  if current_user == @user
+	 haml :'posts/new'
+  else
+    redirect '/'
+  end
 end
 
 
