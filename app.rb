@@ -33,6 +33,15 @@ helpers do
   end
 end
 
+def current_user
+  if session[:user_id].nil?
+    nil
+  else
+    User.find(session[:user_id])
+  end
+end
+
+
 get '/' do
 	haml :home
 end
@@ -70,8 +79,8 @@ post '/sign_in' do
 
 
 get '/users/:id' do
-	User.find(params[:id])
-	haml :profile
+	@user = User.find(params[:id])
+	haml :'users/show'
 end
 
 get '/users/:id/posts/new' do
@@ -82,6 +91,33 @@ get '/users/:id/posts/new' do
     redirect '/'
   end
 end
+
+get '/users/:user_id/posts/:id' do
+  @post = Post.find(params[:id])
+  if @post.user_id == params[:user_id].to_i
+    haml :'posts/show'
+  else
+    flash[:alert] = "Your post could not be found."
+    redirect '/'
+  end
+end
+
+post '/users/:id/posts/new' do
+  @user = User.find(params[:id])
+  if @user == current_user
+    @post = Post.new(params[:post])
+    if @post.save && @user.posts << @post
+      flash[:notice] = "That tidbit was saved."
+      redirect "/users/#{@user.id}"
+    else
+      flash[:alert] = "You done messed that up."
+      redirect "/users/#{@user.id}/posts/new"
+    end
+  else
+    redirect '/'
+  end
+end
+
 
 
 
