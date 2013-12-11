@@ -3,7 +3,7 @@
 %h1 Y'all are fixin' to jot somethin' down!
 
 %form{action: "/users/#{@user.id}/posts/new", method: 'POST'}
-/ why is it .id here, if we already defined @user as being User.find(parems[:id])?
+	-#why is it .id here, if we already defined @user as being User.find(parems[:id])?
 	%label{for: '[post]title'} Title
 	%input{type: 'text', name: '[post]title'}
 	%label{for: '[post]body'} Spit it out
