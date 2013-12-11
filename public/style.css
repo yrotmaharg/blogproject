@@ -10,9 +10,24 @@ body {
 	font-size: 10px;
 }
 
+
 @media screen and (min-width: 1024px) {
 	.postbody {
 		color: red;
 	}
+}
 
+textarea {
+	width: 75%;
+	min-height: 150px;
+	max-height: 700px;
+	
+}
+
+label {
+	font-size: 14pt;
+}
+
+img {
+	margin-left: 40px;
 }
