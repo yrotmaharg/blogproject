@@ -1,0 +1,11 @@
+.nav li{
+	display: inline
+}
+
+body {
+	background-color: #CCFFFF
+}
+
+.posted-on{
+	font-size: 10px;
+}

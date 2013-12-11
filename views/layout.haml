@@ -1,0 +1,59 @@
+!!!
+%html
+  %head
+    %title Blogtown
+    %link{rel: 'stylesheet', href: '/style.css', type: 'text/css'}
+  %body
+    -if flash[:notice]
+      =flash[:notice]
+    -if flash[:alert]
+      =flash[:alert]
+
+  %ul.nav
+    %li
+      %a{href: '/'} Home
+      -if current_user
+        %li
+          %a{href: "/users/#{current_user.id}/posts/new"} New Post
+        %li
+          %a{href: "/users/#{current_user.id}"} Profile
+        %li
+          %a{href: '/sign_out'} Sign out
+      -else
+        %li  
+          %a{href: '/users/new'} Sign up
+        %li 
+          %a{href: '/sign_in'} Sign in
+    
+     
+
+
+  =yield
+
+
+/ command / in sublime will make everything you highlight a comment
+/ put your js at the end of your code, because you don't really need it in the first seconds.
+
+/RESTFUL routing:
+
+/Users
+/users index GET
+/users//  show GET
+/users/new new GET
+/users/new create GET
+/users/1/edit edit GET
+/users/1/edit update POST
+/users/1/destroy destroy DELETE
+
+
+
+/create read update and destroy: CRUD
+
+/So, for example in the relationship between User and Posts tables in routes:
+/users/:user_id/posts   index GET
+/users/:user_id/posts/:id show GET
+/users/:user_id/posts/new new GET
+/users/:user_id/posts/new create POST
+/users/:user_id/posts/:id/update POST
+
+
