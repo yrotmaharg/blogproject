@@ -84,7 +84,7 @@ get '/users/:id' do
 end
 
 get '/users/:id/posts/new' do
-  @user = User.find(parems[:id])
+  @user = User.find(params[:id])
   if current_user == @user
 	 haml :'posts/new'
   else

@@ -9,3 +9,18 @@ body {
 .posted-on{
 	font-size: 10px;
 }
+
+textarea {
+	width: 75%;
+	min-height: 150px;
+	max-height: 700px;
+	
+}
+
+label {
+	font-size: 14pt;
+}
+
+img {
+	margin-left: 40px;
+}

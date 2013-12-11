@@ -3,9 +3,14 @@
 %h1 Y'all are fixin' to jot somethin' down!
 
 %form{action: "/users/#{@user.id}/posts/new", method: 'POST'}
-/ why is it .id here, if we already defined @user as being User.find(parems[:id])?
-	%label{for: '[post]title'} Title
+	-#why is it .id here, if we already defined @user as being User.find(parems[:id])?
+	%label{for: '[post]title'} Title:
+	%br
 	%input{type: 'text', name: '[post]title'}
-	%label{for: '[post]body'} Spit it out
+	%br
+	%br
+	%label{for: '[post]body'} Spit it out:
+	%br
 	%textarea{name: '[post]body'}
-	%input.btn{type: 'submit', value: 'create post'}
+	%br
+	%input.btn{type: 'submit', value: 'post that pony'}
